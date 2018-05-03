@@ -1,0 +1,29 @@
+
+i.icon {
+    font-size: 2em;
+}
+
+.container.main {
+    margin-top : 7.0em ;
+}
+.items {
+    margin-top: 9.0em !important;
+}
+
+.item.main.container {
+    margin-bottom: 2.0em !important;
+    margin-top: 2.0em !important;
+    padding-top : 2.0em ;
+}
+
+
+
+body {
+    height: 100%;
+    width: 100% ;
+    background-image: url("/photo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
