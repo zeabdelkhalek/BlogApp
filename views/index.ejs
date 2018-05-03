@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+
+
+<div class="ui divided items container">
+			<h1> Blog App </h1>
+    <% Blogs.forEach(function(blog) { %>
+
+    <div class="item container ">
+        <div class="image">
+            <img src="<%= blog.image%>">
+        </div>
+        <div class="content">
+            <a class="header"> <%= blog.title %></a>
+            <div class="meta">
+                <span><%- blog.body.substring(0 ,100) %> .....</span>
+            </div>
+            <div class="ui large star rating"></div>
+           
+            <div class="extra">
+                <a href="/blogs/<%=blog._id%>" class="ui floated basic violet button ">
+                Read More <i class="right icon chevron"> </i> </a>
+                
+                <span> <%= blog.created.toDateString() %></span>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>
+
+
+<% include ../partials/footer %>

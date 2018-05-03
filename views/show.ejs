@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+
+<div class="ui main container text segment">
+    <div class="ui huge header">
+        <%= blog.title %>
+
+    </div>
+    <br>
+
+    <div class="ui top attached">
+        <div class="item">
+            <img src="<%= blog.image%>" class="ui rounded image centered">
+
+
+<br> <br>
+            <div class="description">
+                <p> <%- blog.body %></p>
+            </div>
+<br><br>
+            <div class="content">
+                <span> Publication Date : <%= blog.created.toDateString() %></span>
+            </div>
+
+        </div>
+        <br>
+
+                   <a href="/blogs/<%= blog._id%>/edit" style="display : inline ; ">
+                       <button class="ui black button">Edit</button>
+                   </a>
+                   <form action="/blogs/<%=blog._id%>?_method=DELETE" method="post" style="display : inline ; ">
+                <button type="submit" class="ui red button inverted " id="delete"> Delete Blog</button>
+                </form>
+
+    </div>
+</div>
+<div class="ui main container text segment">
+    <div class="ui huge header">
+        Comments
+
+    </div>
+
+     <% if (blog.comments.length != 0 )  { %>
+    <% blog.comments.forEach(function(comment){ %>
+    <div class="ui raised segment">
+        <p style="display: inline ;"> <%= comment.content %></p>
+        <h5 style="display: inline ;"> --- <%=comment.name %> --- </h5>
+
+    </div>
+
+    <% }) %>
+    <% } else { %>
+    <div class="ui raised segment">
+        <p style="display: inline ;"> No Comment Here </p>
+    </div>
+    <% } %>
+</div>
+
+<form action="/blogs/<%=blog._id%>/comment" method="post" >
+<div class="ui inverted segment main container text">
+    <div class="ui huge header">
+       Add a Comment
+    </div>
+    <div class="ui inverted form">
+
+            <div class="field">
+                <label>Your Name</label>
+                <input placeholder="Your Name" type="text" name="comment[name]">
+            </div>
+        <div class="field">
+            <label>Your Comment</label>
+            <textarea type="text" name="comment[content]" > </textarea>
+        </div>
+        <button class="ui black inverted button" type="sumbit">Submit</button>
+    </div>
+</div>
+</form>
+<% include ../partials/footer %>
