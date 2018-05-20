@@ -43,7 +43,7 @@
     <% blog.comments.forEach(function(comment){ %>
     <div class="ui raised segment">
         <p style="display: inline ;"> <%= comment.content %></p>
-        <h5 style="display: inline ;"> --- <%=comment.name %> --- </h5>
+        <h5 style="display: inline ;"> --- <%= comment.name %> --- </h5>
 
     </div>
 
@@ -61,17 +61,15 @@
        Add a Comment
     </div>
     <div class="ui inverted form">
-
-            <div class="field">
-                <label>Your Name</label>
-                <input placeholder="Your Name" type="text" name="comment[name]">
-            </div>
         <div class="field">
             <label>Your Comment</label>
-            <textarea type="text" name="comment[content]" > </textarea>
+            <textarea type="text" name="comment" > </textarea>
         </div>
         <button class="ui black inverted button" type="sumbit">Submit</button>
     </div>
 </div>
 </form>
+
+
+
 <% include ../partials/footer %>

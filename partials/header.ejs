@@ -21,6 +21,7 @@
   crossorigin="anonymous"></script>
 <script src="/semantic.js"></script>
 <script src="/semantic.min.js"></script>
+
 </head>
 <body>
 
@@ -29,6 +30,16 @@
       <div class="header item"><i class="code icon"></i>Blog Site</div>
       <a href="/blogs" class="item">Home</a>
       <a href="/blogs/new" class="item">New Post</a>
+        <div class="right menu">
+           <% if (!currentUser ) { %>
+        <a href="/blogs/login" class="item" id="login">Login</a>
+        <a href="/blogs/register" class="item" id="register">Register</a>
+            <%} else { %>
+            <a href="#" class="item" id="UserName"> Signed as <%= currentUser.username %> </a>
+            <a href="/blogs/logout" class="item" id="logout" >LogOut</a>
+            <%} %>
+
+        </div>
     </div>
 
   </div>
