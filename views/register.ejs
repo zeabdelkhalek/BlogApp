@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+
+<form action="/register" method="post" style="margin: 100px ; ">
+
+    <div class="ui inverted segment main container text">
+        <div class="ui huge header">
+            Register
+        </div>
+        <div class="ui inverted form">
+            <div class="field">
+                <label>Your Name</label>
+                <input type="text" name="username" placeholder="UserName">
+            </div>
+            <div class="field">
+                <label>Your Password</label>
+                <input type="password" name="password" placeholder="Password" >
+            </div>
+            <button class="ui black inverted button" type="sumbit">Register</button>
+        </div>
+    </div>
+    </div>
+</form>
+
+<script>
+<% if (alrt) { %>
+    alert("A user with the given username is already registered") ;
+<%} %>
+</script>
+
+<% include ../partials/footer %>

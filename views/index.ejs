@@ -11,7 +11,7 @@
             <img src="<%= blog.image%>">
         </div>
         <div class="content">
-            <a class="header"> <%= blog.title %></a>
+            <a class="header"  href="/blogs/<%=blog._id%>"> <%= blog.title %></a>
             <div class="meta">
                 <span><%- blog.body.substring(0 ,100) %> .....</span>
             </div>
