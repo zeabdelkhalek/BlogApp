@@ -1,0 +1,28 @@
+body {
+    background: url("../imgs/photo1.jpg");
+    background-size: cover;
+    background-position: center;
+    transition: background 1.5s ease-out;
+}
+body,
+html {
+    color: white;
+}
+h1 {
+    font-weight: 700;
+    font-size: 5em;
+    text-shadow: 0 4px 3px rgba(0,0,0,0.4), 0 8px 13px rgba(0,0,0,0.1), 0 18px 23px rgba(0,0,0,0.1);
+}
+h3 {
+    text-shadow: 0 4px 3px rgba(0,0,0,0.4), 0 8px 13px rgba(0,0,0,0.1), 0 18px 23px rgba(0,0,0,0.1);
+}
+.content {
+    padding-top: 10%;
+    text-align: center;
+}
+hr {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgb(0,0,0);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
