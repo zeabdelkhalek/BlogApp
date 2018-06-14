@@ -85,11 +85,11 @@
             <div class="extra">
              <!--   <a href="/blogs/<%=blog._id%>" class="ui floated basic violet button ">
                 Read More <i class=""> </i> </a>-->
-
+<a href="/blogs/<%=blog._id%>">
                 <button class="ui right labeled violet icon button">
                     <i class="right icon chevron" style="font-size: 20px ;"></i>
                     Read More
-                </button>
+                </button> </a>
                 
                 <span> <%= blog.created.toDateString() %></span>
             </div>
@@ -97,10 +97,19 @@
     </div>
     <% }) %>
 </div>
+<script>
+    $('.message .close')
+        .on('click', function() {
+            $(this)
+                .closest('.message')
+                .transition('fade' , 1000)
+            ;
+        })
+    ;
+</script>
 
 
-
-<% include ../partials/footer %>
+<!-- <% include ../partials/footer %> -->
 <script>
     document.querySelector("footer").style.position = "relative" ;
 </script>
