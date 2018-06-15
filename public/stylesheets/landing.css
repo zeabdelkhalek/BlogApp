@@ -2,6 +2,7 @@ body {
     background: url("../imgs/photo1.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat : no-repeat ;
     transition: background 1.5s ease-out;
 }
 body,
