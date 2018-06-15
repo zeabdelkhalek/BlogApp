@@ -47,8 +47,9 @@
      <% if (blog.comments.length != 0 )  { %>
     <% blog.comments.forEach(function(comment){ %>
     <div class="ui raised segment">
+    <h5 style="display: inline ;">  <%= comment.name %>  :  </h5>
         <p style="display: inline ;"> <%= comment.content %></p>
-        <h5 style="display: inline ;"> Written By : " <%= comment.name %> "  </h5>
+        
 
     </div>
 
