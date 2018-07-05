@@ -2,11 +2,21 @@
 <html>
 <head>
     <title> BlogApp </title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121911619-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121911619-1');
+</script>
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
     <link rel="shortcut icon" type="image/x-icon" href="/blogg.png">
 
-
+  
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
@@ -81,7 +91,7 @@
                 <span><%- blog.body.substring(0 ,100) %> .....</span>
             </div>
             <div class="ui large star rating"></div>
-           
+
             <div class="extra">
              <!--   <a href="/blogs/<%=blog._id%>" class="ui floated basic violet button ">
                 Read More <i class=""> </i> </a>-->
@@ -90,14 +100,15 @@
                     <i class="right icon chevron" style="font-size: 20px ;"></i>
                     Read More
                 </button> </a>
-                
+
                 <span> <%= blog.created.toDateString() %></span>
             </div>
         </div>
     </div>
     <% }) %>
 </div>
-<script>
+
+  <script>
     $('.message .close')
         .on('click', function() {
             $(this)
@@ -110,6 +121,3 @@
 
 
 <!-- <% include ../partials/footer %> -->
-<script>
-    document.querySelector("footer").style.position = "relative" ;
-</script>

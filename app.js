@@ -13,21 +13,34 @@ bodyParser = require("body-parser") ,
 mongoose = require("mongoose")  ,
 methodoverride = require("method-override") ,
     passport = require("passport") ,
-    flash = require ("connect-flash") ;
+    flash = require ("connect-flash")  ,
+    fileUpload = require('express-fileupload') ,
     LocalStrategy = require("passport-local") ,
-    passportLocalMongoose = require("passport-local-mongoose") ,
+    mailer = require('express-mailer'),
+  passportLocalMongoose = require("passport-local-mongoose") ,
     User = require("./models/user") ;
 
  //mongoose.connect("mongodb://localhost/Blog");
  mongoose.connect("mongodb://blogapp:cse2008@ds159400.mlab.com:59400/blogapp");
 // mongoose.connect("mongodb://abdou:cse2008@ds247330.mlab.com:47330/testcse");
 app.use(bodyParser.urlencoded({extended:true}));
-app.use('/' , express.static('public'));
+app.use(fileUpload());
 
+app.use('/' , express.static('public'));
+mailer.extend(app, {
+  from: 'no-reply@example.com',
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  auth: {
+    user: 'ha_zellat@esi.dz',
+    pass: '20171782'
+  }
+});
 app.use(methodoverride("_method"));
 app.set("view engine"  , "ejs") ;
 app.use(flash()) ;
-
 
 var CommentScheema = new mongoose.Schema({
    name : String ,
@@ -68,10 +81,15 @@ app.use(function (req,res,next) {
 })
 
 
+
 app.get("/" , function (req,res) {
    res.render("home") ;
    //console.log(req.user.username) ;
 })
+
+
+
+ /* */
 
 
 app.get("/blogs"  , function(req,res) {
@@ -115,9 +133,26 @@ app.post("/register" , function (req,res) {
         }
         passport.authenticate("local")(req,res,function () {
             req.flash("success" , " Welcome To BlogApp  " +  user.username) ;
+            app.mailer.send('mail', {
+              to: req.body.mail , // REQUIRED. This can be a comma delimited string just like a normal email to field.
+              subject: 'Welcome To BlogApp', // REQUIRED.
+              otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
+            }, function (err) {
+              if (err) {
+                // handle error
+                console.log(err);
+                //res.send('There was an error sending the email');
+                return;
+              }
+              // res.send('Email Sent');
+            });
             res.redirect("/blogs") ;
             });
     });
+
+
+
+
 
 });
 
@@ -220,9 +255,7 @@ app.delete("/blogs/:id" ,  function(req,res) {
 app.post("/blogs/:id/comment" ,IsLoggedIn ,  function (req,res) {
    Blog.findById( req.params.id , function (err , foundBlog) {
        if(err) { req.flash("error" , err.message)} else {
-           foundBlog.comments.push({ name : req.user.username  , content :   req.body.comment})  ;
-           foundBlog.save() ;
-           req.flash("success" , "Successfully added comment")
+           foundBlog.comments.push({ name : req.user.username  , content :   req.body.comment})  ;           req.flash("success" , "Successfully added comment")
            }
    })
 
