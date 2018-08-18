@@ -27,17 +27,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(fileUpload());
 
 app.use('/' , express.static('public'));
-mailer.extend(app, {
-  from: 'no-reply@example.com',
-  host: 'smtp.gmail.com', // hostname
-  secureConnection: true, // use SSL
-  port: 465, // port for secure SMTP
-  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
-  auth: {
-    user: 'ha_zellat@esi.dz',
-    pass: '20171782'
-  }
-});
+
 app.use(methodoverride("_method"));
 app.set("view engine"  , "ejs") ;
 app.use(flash()) ;
