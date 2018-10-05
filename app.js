@@ -4,6 +4,7 @@
 * Zellat Abdelkhalek
 * Copyright 2018
 */
+var port = process.env.PORT || 3000 ;
 
 var alrt = 0 ;
 var express = require("express") ,
@@ -235,4 +236,4 @@ function IsLoggedIn (req , res , next) {
       res.redirect("/blogs/login") ;
 }
 
-app.listen(3000 , () => console.log("SERVER HAS STARTED , CHECK YOUR LOCAL HOST ' http://localhost:3000 ' ")) ;
+app.listen(port , () => console.log("SERVER HAS STARTED , CHECK  " + port)) ;
