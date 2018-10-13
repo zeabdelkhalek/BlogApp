@@ -22,7 +22,8 @@ methodoverride = require("method-override") ,
  mongoose.connect("mongodb://blogapp:cse2008@ds159400.mlab.com:59400/blogapp");
 // mongoose.connect("mongodb://abdou:cse2008@ds247330.mlab.com:47330/testcse");
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(__dirname+'public'));
+app.use(express.static(__dirname + 'public'));
+console.log(__dirname);
 app.use(methodoverride("_method"));
 app.set("view engine"  , "ejs") ;
 app.use(flash()) ;
