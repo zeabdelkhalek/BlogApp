@@ -20,17 +20,22 @@
             <div class="content">
                 <span> Publication Date : <%= blog.created.toDateString() %></span>
             </div>
+            <div class="content">
+                <em>  <span> Submitted By : <%= blog.author %></span> </em>
+            </div>
 
         </div>
         <br>
 
-                   <a href="/blogs/<%= blog._id%>/edit" style="display : inline ; ">
-                       <button class="ui black button">Edit</button>
-                   </a>
-                   <form action="/blogs/<%=blog._id%>?_method=DELETE" method="post" style="display : inline ; ">
-                <button type="submit" class="ui red button inverted " id="delete"> Delete Blog</button>
-                </form>
+                <% if ( (currentUser) && ( currentUser.username == blog.author ) ) {  %>
 
+        <div class="ui large buttons">
+            <a href="/blogs/<%= blog._id%>/edit" > <button class="ui button green ">Edit</button></a>
+            <div class="or"></div>
+            <form action="/blogs/<%=blog._id%>?_method=DELETE" method="post">
+                <button class="ui button red  ">Delete</button> </form>
+        </div>
+        <% } %>
     </div>
 </div>
 <div class="ui main container text segment">

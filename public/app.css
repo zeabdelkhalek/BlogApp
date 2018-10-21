@@ -3,27 +3,97 @@ i.icon {
     font-size: 2em;
 }
 
-.container.main {
-    margin-top : 7.0em ;
-}
-.items {
-    margin-top: 9.0em !important;
+i.close.icon {
+    font-size : 15px ;
 }
 
-.item.main.container {
+/*.container.main {
+    margin-top : 4.0em ;
+}*/
+.items {
+    margin-top: 1.0em !important;
+}
+
+/*.item.main.container {
+    position: absolute;
     margin-bottom: 2.0em !important;
     margin-top: 2.0em !important;
     padding-top : 2.0em ;
-}
+}*/
 
 
-
-body {
+/*html {
     height: 100%;
-    width: 100% ;
-    background-image: url("/photo.jpg");
+}*/
+body {
+    position: relative;
+   /* height: 100%;
+    width: 100% ;*/
+    background-image: url("/photo.JPG") ;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+
+}
+
+.content {
+    padding-bottom: 10px ;
+}
+
+.ui.message {
+
+}
+.ui.fixed {
+    margin-bottom: 20px !important;
+    position: relative !important;
+}
+.container {
+    position: relative;
+}
+@media (min-width: 1200px)
+    .container {
+        width: 1170px;
+    }
+
+    @media (min-width: 992px)
+        .container {
+            width: 970px;
+        }
+        @media (min-width: 768px)
+            .container {
+                width: 750px;
+            }
+            .container {
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+.content {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+            .hidden.content {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+
+#home {
+    padding-top: 10% !important;
+
+}
+html {
+    height : 100% ;
+}
+body {
+    height : 100% ;
+
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 
 }

@@ -1,4 +1,69 @@
-<% include ../partials/header %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title> BlogApp </title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/blogg.png">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.js
+
+"></script>
+
+</head>
+<body>
+
+<div class="ui fixed inverted menu" >
+    <div class="ui container">
+        <a href="/"> <div class="header item"><i class="fab fa-blogger" style="font-size: 30px ; margin-right: 10px ; "></i>BlogApp</div></a>
+        <a href="/blogs" class="item active">Home</a>
+        <% if ( currentUser ) { %>
+        <a href="/blogs/new" class="item">New Article</a>
+        <%} %>
+        <div class="right menu">
+            <% if (!currentUser ) { %>
+            <a href="/blogs/login" class="item" id="login">LogIn</a>
+            <a href="/blogs/register" class="item" id="register">Sign-Up</a>
+            <%} else { %>
+            <a href="#" class="item  ui " id="UserName"> Signed as <%= currentUser.username %> </a>
+            <a href="/blogs/logout" class="ui item " id="logout" >LogOut</a>
+            <%} %>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <% if ( !(success.length == 0) ) { %>
+    <div class="ui message success transition ">
+        <i class="close icon"></i>
+        <div class="header">
+
+        </div>
+        <p>
+            <%= success %>
+        </p>
+    </div>
+    <% } %>
+    <% if ( !(error.length == 0) ) { %>
+    <div class="ui message error transition ">
+        <i class="close icon"></i>
+        <div class="header">
+            Oops !! There is a problem !
+        </div>
+        <p>  <%= error %>
+        </p>
+    </div>
+    <% } %>
+</div>
+
+
 
 
 
@@ -18,8 +83,13 @@
             <div class="ui large star rating"></div>
            
             <div class="extra">
-                <a href="/blogs/<%=blog._id%>" class="ui floated basic violet button ">
-                Read More <i class="right icon chevron"> </i> </a>
+             <!--   <a href="/blogs/<%=blog._id%>" class="ui floated basic violet button ">
+                Read More <i class=""> </i> </a>-->
+
+                <button class="ui right labeled violet icon button">
+                    <i class="right icon chevron" style="font-size: 20px ;"></i>
+                    Read More
+                </button>
                 
                 <span> <%= blog.created.toDateString() %></span>
             </div>
@@ -29,4 +99,8 @@
 </div>
 
 
+
 <% include ../partials/footer %>
+<script>
+    document.querySelector("footer").style.position = "relative" ;
+</script>
