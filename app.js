@@ -123,7 +123,7 @@ app.post("/register" , function (req,res) {
         }
         passport.authenticate("local")(req,res,function () {
             req.flash("success" , " Welcome To BlogApp  " +  user.username) ;
-            app.mailer.send('mail', {
+            /* app.mailer.send('mail', {
               to: req.body.mail , // REQUIRED. This can be a comma delimited string just like a normal email to field.
               subject: 'Welcome To BlogApp', // REQUIRED.
               otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
@@ -135,7 +135,7 @@ app.post("/register" , function (req,res) {
                 return;
               }
               // res.send('Email Sent');
-            });
+            }); */ 
             res.redirect("/blogs") ;
             });
     });
