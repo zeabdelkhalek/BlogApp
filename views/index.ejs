@@ -16,7 +16,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="/blogg.png">
 
-  
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
@@ -82,8 +82,12 @@
     <% Blogs.forEach(function(blog) { %>
 
     <div class="item container ">
-        <div class="image">
-            <img src="<%= blog.image%>">
+        <div class="image" style="
+          background-image: url(<%= blog.image %>);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+        ">
         </div>
         <div class="content">
             <a class="header"  href="/blogs/<%=blog._id%>"> <%= blog.title %></a>
