@@ -44,7 +44,7 @@ app.use(flash()) ;
 
 var CommentScheema = new mongoose.Schema({
    name : String ,
-   content : String ,
+   content : String 
 }) ;
 var Comment = mongoose.model("Comment" , CommentScheema ) ;
 
@@ -255,7 +255,11 @@ app.delete("/blogs/:id" ,  function(req,res) {
 app.post("/blogs/:id/comment" ,IsLoggedIn ,  function (req,res) {
    Blog.findById( req.params.id , function (err , foundBlog) {
        if(err) { req.flash("error" , err.message)} else {
-           foundBlog.comments.push({ name : req.user.username  , content :   req.body.comment})  ;           req.flash("success" , "Successfully added comment")
+
+           foundBlog.comments.push({ name : req.user.username  , content : req.body.comment})  ;
+		foundBlog.save(); 
+          req.flash("success" , "Successfully added comment")
+
            }
    })
 
