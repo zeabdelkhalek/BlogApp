@@ -32,6 +32,9 @@ app.use('/' , express.static('public'));
 app.use(methodoverride("_method"));
 app.set("view engine"  , "ejs") ;
 app.use(flash()) ;
+var cors = require('cors');
+app.use(cors());
+
 
 var CommentScheema = new mongoose.Schema({
    name : String ,
