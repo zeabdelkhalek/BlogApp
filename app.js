@@ -168,8 +168,8 @@ app.get("/blogs/logout" , function (req,res) {
 });
 
 app.get("/check-cors"  ,function (req,res) {
-    //res.json(true).status(200);
-    res.json(false).status(404);
+    //res.status(200).json(true);
+    res.status(404).json(false);
 })
 
 app.get("/blogs/:id"  ,function (req,res) {
