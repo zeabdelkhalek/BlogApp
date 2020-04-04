@@ -76,10 +76,10 @@ app.use(function (req,res,next) {
 
 
 
-app.get("/" , function (req,res) {
-   res.render("home") ;
-   //console.log(req.user.username) ;
-})
+// app.get("/" , function (req,res) {
+//    res.render("home") ;
+//    //console.log(req.user.username) ;
+// })
 
 
 
