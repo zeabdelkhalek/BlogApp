@@ -167,7 +167,10 @@ app.get("/blogs/logout" , function (req,res) {
     res.redirect("/blogs") ;
 });
 
-
+app.get("/check-cors"  ,function (req,res) {
+    res.json(true).status(200);
+    //res.send(false).status(404);
+})
 
 app.get("/blogs/:id"  ,function (req,res) {
    Blog.findById( req.params.id , function (err , foundBlog) {
